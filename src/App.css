@@ -1,0 +1,108 @@
+.intro{
+    box-shadow:0 0 2px rgba(0,0,0,0.4);
+    background: linear-gradient(to bottom,rgba(235, 209, 169, 0.753),rgba(235, 222, 203, 0.486));
+}
+
+:is(.category-scroll,.cart-scroll)::-webkit-scrollbar{
+    width: 3px;
+}
+
+:is(.category-scroll,.cart-scroll)::-webkit-scrollbar-thumb{
+    width: 2px;
+    border-radius: 3px;
+    background-color: rgb(197, 195, 195);
+}
+
+
+.name{
+    letter-spacing: 3px;
+    text-shadow: 3px 1px rgb(145, 145, 146);
+}
+
+.login{
+    animation: move 600ms ease-out;
+}
+@keyframes move {
+    from{
+        margin-top: -50px;
+    }
+    to{
+        margin-top: 0px;
+    }
+}
+
+.login .btn{
+    transition: box-shadow 200ms;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.login .btn:active{
+    scale: 0.99;
+    box-shadow: 0 0 rgba(0,0,0,0.2);
+}
+
+.intro-text{
+   animation: intro-left 600ms ease-out;
+}
+
+@keyframes intro-left {
+    from{
+        margin-left: -250px;
+    }
+    to{
+        margin-left: 0px;
+    }
+}
+
+.intro-img{
+    animation: intro-right 600ms ease-out;
+ }
+
+ @keyframes intro-right {
+    from{
+        margin-right: -250px;
+    }
+    to{
+        margin-right: 0px;
+    }
+}
+
+.category-anime{
+    animation: category 800ms ease-out;
+}
+
+@keyframes category {
+    from{
+        scale:0;
+    }
+    to{
+        scale:1;
+    }
+}
+
+.product-left{
+    animation: product-left 600ms ease-out;
+ }
+ 
+ @keyframes product-left {
+     from{
+         margin-top: -250px;
+     }
+     to{
+         margin-top: 0px;
+     }
+ }
+
+ .product-right{
+    animation: product-right 600ms ease-out;
+ }
+ 
+ @keyframes product-right {
+     from{
+         margin-bottom: -250px;
+     }
+     to{
+         margin-bottom: 0px;
+     }
+ }
+
