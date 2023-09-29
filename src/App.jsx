@@ -17,7 +17,7 @@ function App() {
     <div className=''>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        <Route path="ecommerce" element={<Navbar />}>
           <Route index element={<Login />} />
           <Route path='home' element={<Intro />} />
           <Route path="category/:name" element={<Category />} />
