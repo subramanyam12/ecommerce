@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import Intro from './components/Intro'
 import About from './components/About'
 import Contact from './components/Contact'
@@ -13,11 +13,11 @@ import Productshow from './components/Productshow';
 function App() {
 
 
-  return (
-    <div className=''>
-      <BrowserRouter>
+  return (  
+    <>
+      <HashRouter >
       <Routes>
-        <Route path="ecommerce" element={<Navbar />}>
+        <Route path="/" element={<Navbar />}>
           <Route index element={<Login />} />
           <Route path='home' element={<Intro />} />
           <Route path="category/:name" element={<Category />} />
@@ -27,10 +27,10 @@ function App() {
           <Route path="cart" element={<Cart />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
       
     
-    </div>
+    </>
   )
 }
 
