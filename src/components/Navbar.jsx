@@ -33,7 +33,7 @@ const Navbar = () => {
     },[token])
 
     window.addEventListener('scroll',(e)=>{
-      if(window.scrollY>80 && e.target.location.pathname==='/home'){
+      if(window.scrollY>80 && e.target.location.pathname==='/ecommerce/home'){
         sethidemenu(false)
       }else{
         sethidemenu(true)
