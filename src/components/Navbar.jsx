@@ -84,7 +84,7 @@ const Navbar = () => {
   return (
     <div className='w-[100vw]'>
     <nav className={` flex ${token['mytoken'] ?'justify-between':'gap-[10vw] mb-2'} max-sm:justify-between sticky px-10 max-sm:px-3 top-0 items-center font-sans z-10 h-[12vh] max-sm:h-full bg-white w-full`}>
-    <Link to={token['mytoken'] ? 'home':'/'} onClick={close}><img className='absolute max-sm:-top-6 cursor-pointer max-sm:w-28 -top-10' src='/atoz.png' width='150' /></Link>
+    <Link to={token['mytoken'] ? 'home':'/'} onClick={close}><img className='absolute max-sm:-top-6 cursor-pointer max-sm:w-28 -top-10' src='http://localhost:5173/ecommerce/atoz.png' width='150' /></Link>
         <div className={` cursor-pointer z-20 items-center ml-14 max-sm:flex-col max-sm:bg-gray-200 max-sm:pt-5 max-sm:absolute max-sm:w-full max-sm:right-1 max-sm:top-5 max-sm:gap-1 ${menubool && 'max-sm:scale-0 origin-top-right'} font-light text-[17px] flex gap-[3vw]`}>
         {token['mytoken'] ?(
           <>
