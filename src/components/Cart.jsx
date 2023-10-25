@@ -20,7 +20,6 @@ const Cart = () => {
       cartitems.forEach(item=>{
         let q=item.cart.quantity
         setquantity(prev=>({...prev,[item.cart.title]:q}))
-        //console.log(quantity);
         let tot=quantity[item.cart.title]*Math.floor(item.cart.price * (1-item.cart.discountPercentage/100))
         if(!tot){
            tot=q*Math.floor(item.cart.price * (1-item.cart.discountPercentage/100))
@@ -62,7 +61,7 @@ const Cart = () => {
           <div className='cart-scroll max-sm:max-h-[39vh] h-[59vh] overflow-auto'>
          {cart && cart.map((item,id)=>(
            <div key={item.cart.id} className='flex justify-between border-b-[1px] border-gray-300 p-3 items-center'>
-             <img src={item.cart.thumbnail} className='w-[10vw] max-sm:w-[20vw] max-sm:h-[10vh] h-[15vh] object-fill' />
+             <img src={item.cart.thumbnail} className='w-[10vw] rounded-lg max-sm:w-[20vw] max-sm:h-[10vh] h-[15vh] object-fill' />
              <h3 className='font-semibold w-[15vw] max-sm:text-sm text-lg'>{item.cart.title}</h3>
              <div className='flex text-gray-700 gap-1 items-center'>
                 <button onClick={()=>neg(item.cart)} className='text-xl border-[1px] w-7 border-gray-400'>-</button>

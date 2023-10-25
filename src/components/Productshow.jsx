@@ -1,6 +1,6 @@
 import React, { useEffect, useState,memo } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { addtocart } from './Redux/Slices/CartSlice'
+import { addtocart,removeitem } from './Redux/Slices/CartSlice'
 import Loading from './Loading'
 
 const Productshow = () => {
@@ -9,9 +9,8 @@ const Productshow = () => {
     const [imgindex, setimgindex] = useState(0)
     const [quantity, setquantity] = useState(1)
     const [cartbool, setcartbool] = useState(true)
-    const cartitems=useSelector(state=>state.Cart)
-    
 
+    const cartitems=useSelector(state=>state.Cart)
     const dispatch=useDispatch()
     const items=useSelector(state=>state.Product[0]?.product)
     
@@ -25,12 +24,17 @@ const Productshow = () => {
 
    
     const carthandle=()=>{
-
         let newprod={...product,quantity}
         dispatch(addtocart({cart:newprod}))
         setcartbool(false)
-    }
+      }
+      const cartremove=()=>{
+        let id=cartitems.findIndex(item=>item.cart.id==product.id)
+        dispatch(removeitem(id))
+        setcartbool(true)
 
+      }
+    
     const addedcheck=()=>{
         let bool=true
         if(cartitems){
@@ -71,7 +75,7 @@ const Productshow = () => {
                    <span className='text-xl border-[1px] max-sm:pt-1 text-center w-9 h-[34px] border-gray-400'>{quantity}</span>
                    <button onClick={()=>setquantity(prev=>prev+1)} className='text-2xl border-[1px] w-9 border-gray-400'>+</button>
                 </div>
-                {cartbool && addedcheck() ?<button onClick={carthandle} className='bg-gray-800 font-bold px-3 py-1 max-sm:px-5 max-sm:py-2 text-white'>Add to cart</button>:<button onClick={carthandle} className='bg-green-600 font-bold px-3 py-1 text-white'>Added</button>}
+                {cartbool && addedcheck() ?<button onClick={carthandle} className='bg-gray-800 font-bold px-3 py-1 max-sm:px-5 max-sm:py-2 text-white'>Add to cart</button>:<button onClick={cartremove} className='bg-green-600 font-bold px-3 py-1 max-sm:px-5 max-sm:py-2 text-white'>Added</button>}
             </div>
             <div className='border-b-[1px] border-gray-300'></div>
             <span className='text-gray-700 font-semibold'><small className='font-normal'>category :</small>{product.category}</span>
