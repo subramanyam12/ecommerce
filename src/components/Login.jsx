@@ -7,6 +7,7 @@ const Login = () => {
   const [islogin, setislogin] = useState(true)
   const [passmatch, setpassmatch] = useState(true);
   const [error, seterror] = useState('')
+  const [isloading, setisloading] = useState(false)
 
   const navigate=useNavigate()
   const [token,settoken] = useCookies(['mytoken']) 
@@ -39,22 +40,24 @@ const Login = () => {
 
   const formhandle=(e)=>{
     e.preventDefault()
+    seterror("")
+    let time=setTimeout(()=>seterror("Network is slow please check your internet..."),5000)
     if(!islogin && inputdata.password!==inputdata.password2){
       seterror("Passwords didn't match")
       setpassmatch(false)
+      clearTimeout(time)
       return
     }
+    setisloading(true)
     productpost(islogin ?'auth' :'users')
     .then(data=>{
       if(data?.non_field_errors){
         setpassmatch(false)
         seterror(data.non_field_errors[0])
-         return
       }
       else if(typeof data?.username==='object'){
         setpassmatch(false)
         seterror(data.username[0])
-        return
       }
       else if(data && islogin){
         settoken('mytoken',data.token)
@@ -63,14 +66,16 @@ const Login = () => {
         productpost('auth')
         .then(resp=>settoken('mytoken',resp.token))
       }
+      setisloading(false)
+      clearTimeout(time)
     })
-   
   }
 
   const logintoreg=()=>{
     setinputdata({username:'',password:'',password2:''})
     setislogin(!islogin)
     seterror(true)
+    setisloading(false)
   }
  
   return (
@@ -96,7 +101,9 @@ const Login = () => {
       )}
       <span className={`text-red-500 font-medium text-[15px] -mt-3 ${passmatch ? 'invisible':'visible'}`}>{error}.</span>
     
-      <button className='bg-blue-500 btn text-white font-bold px-[3vw] max-sm:px-[10vw] py-1 text-xl'>{islogin ? 'Login' :'Register'}</button>
+      <button className='bg-blue-500 btn text-white font-bold w-[9vw] max-sm:w-[24vw] flex justify-center py-1 text-xl'>
+      {!isloading ? <span>{islogin ? "Login" : "Register"}</span> :<p className="w-6 h-6 my-[2px] rounded-full border-t-[3px] border-l-2 animate-spin border-white"></p>}
+      </button>
      <div>{islogin ? "Don't" :'Already'} Have An Account ,<span className='font-bold cursor-pointer text-green-700 text-lg border-b-[1px] border-black' onClick={logintoreg}>{islogin ? 'Register':'Login'}</span> Here</div>
     </form>
     </div>

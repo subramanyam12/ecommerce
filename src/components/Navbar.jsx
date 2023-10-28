@@ -71,7 +71,7 @@ const Navbar = () => {
     const inputcheck=()=>{
       let inputname='Products Not Found'
       category && input && category.map(item=>{
-        if(item.includes(input)){
+        if(item.includes(input.toLowerCase())){
           inputname=item
           return
         }
