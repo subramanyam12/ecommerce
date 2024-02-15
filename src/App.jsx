@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import {HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import Intro from './components/Intro'
 import About from './components/About'
 import Contact from './components/Contact'
@@ -13,23 +13,23 @@ import Productshow from './components/Productshow';
 function App() {
 
 
-  return (  
+  return (
     <>
       <HashRouter >
-      <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route index element={<Login />} />
-          <Route path='home' element={<Intro />} />
-          <Route path="category/:name" element={<Category />} />
-          <Route path="category/:name/:id" element={<Productshow />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="cart" element={<Cart />} />
-        </Route>
-      </Routes>
-    </HashRouter>
-      
-    
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            {/* <Route  element={<Login />} /> */}
+            <Route index path='home' element={<Intro />} />
+            <Route path="category/:name" element={<Category />} />
+            <Route path="category/:name/:id" element={<Productshow />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="cart" element={<Cart />} />
+          </Route>
+        </Routes>
+      </HashRouter>
+
+
     </>
   )
 }
