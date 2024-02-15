@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar />}>
             {/* <Route  element={<Login />} /> */}
-            <Route index path='home' element={<Intro />} />
+            <Route index path='/' element={<Intro />} />
             <Route path="category/:name" element={<Category />} />
             <Route path="category/:name/:id" element={<Productshow />} />
             <Route path="about" element={<About />} />

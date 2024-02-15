@@ -84,11 +84,11 @@ const Navbar = () => {
   return (
     <div className='w-[100vw]'>
       <nav className="flex justify-between max-sm:mb-2 max-sm:justify-between sticky px-10 max-sm:px-3 top-0 items-center font-sans z-10 h-[12vh] max-sm:h-full bg-white w-full">
-        <Link to="home" onClick={close}><img className='absolute max-sm:-top-6 cursor-pointer max-sm:w-28 -top-10' src='https://subramanyam12.github.io/ecommerce/atoz.png' width='150' /></Link>
+        <Link to="/" onClick={close}><img className='absolute max-sm:-top-6 cursor-pointer max-sm:w-28 -top-10' src='https://subramanyam12.github.io/ecommerce/atoz.png' width='150' /></Link>
         <div className={` cursor-pointer z-20 items-center ml-14 max-sm:flex-col max-sm:bg-gray-200 max-sm:pt-5 max-sm:absolute max-sm:w-full max-sm:right-1 max-sm:top-5 max-sm:gap-1 ${menubool && 'max-sm:scale-0 origin-top-right'} font-light text-[17px] flex gap-[3vw]`}>
 
 
-          <Link to='home' onClick={close} className='max-sm:border-b-[1px] max-sm:py-1 max-sm:text-center max-sm:font-medium max-sm:w-full max-sm:border-gray-400'>Home</Link>
+          <Link to='/' onClick={close} className='max-sm:border-b-[1px] max-sm:py-1 max-sm:text-center max-sm:font-medium max-sm:w-full max-sm:border-gray-400'>Home</Link>
           <span className='max-sm:border-b-[1px] relative max-sm:py-1 max-sm:ml-2 max-sm:text-center max-sm:font-medium max-sm:w-full max-sm:border-gray-400'>
             <h5 className={`${!hidemenu && category && '-ml-[9px] font-bold'}`} onClick={() => sethidemenu(prev => !prev)}>products <CgSelect className='inline' /></h5>
             <ul className={` absolute w-56 py-2 h-[90vh] category-scroll overflow-auto max-sm:left-0 -left-16 max-sm:w-full top-8 ${hidemenu && 'hidden'} bg-white border-[1px] border-gray-300`}>
